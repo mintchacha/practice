@@ -139,9 +139,36 @@
 
 // const tasksNotDone = items.filter(items => !items.done)//filter 해당하는 조건의 객체를 조사함 map,find 과 동일한 작동방식
 
-const numbers = [10,20,30,40];
-const index = numbers.indexOf(30);
-numbers.splice(index,1); //index 상수부터 시작해서 1인덱스까지 뺏아온다.기존배열 영향 o
+// const numbers = [10,20,30,40];
+// const index = numbers.indexOf(30);
+// numbers.splice(index,1); //index 상수부터 시작해서 1인덱스까지 뺏아온다.기존배열 영향 o
+// const sliced = numbers.slice(0,2);//0인덱스부터 2인덱스이전까지 가져옴 기존배열 영향 x
+// const value = numbers.shift('20');//배열안의 맨앞의 요소를 하나씩 빼서 가져옴 배열 영향 o
+// const value = numbers.pop(); //shift 와 같지만 끝의 요소를 하나씩. push로 넣은 값을 가져오기좋음
+// numbers.unshift(5); // 배열의 맨앞에 요소를 추가
 
-const sliced = numbers.slice(0,2);//0인덱스부터 2인덱스이전까지 가져옴 기존배열 영향 x
-console.log(nslicedumbers);
+// const arr1 = [1,2,3];
+// const arr2 = [4,5,6];
+// const concated = arr1.concat(arr2);//배열 결합하기 기존배열 영향 x
+// const array = [1,2,3,4,5];
+// console.log(array.join("/"));//배열을 문자열로 바꿔준다. join의 파라미터는 세퍼레이트로 배열요소사이의 공간형태를 정해줄수있다.
+
+//배열의 평균 값을 내는 방법
+// const numbers = [1,2,3,4,5];
+// const avg = numbers.reduce((accumulator, current, index, array) => {
+//     if(index === array.length -1){
+//         return (accumulator + current) / array.length
+//     };
+//     return accumulator + current;
+// }, 0) //reduce의 accumulator누적된 값) current(각 원소들 처음부터), 0(초기값), ,index는 할당된 배열 몇번째인지, array 배열전부
+
+const alphabets = ['a', 'a', 'a','b','c','c','d','e'];
+const counts = alphabets.reduce((acc,current) =>{
+    if(acc[current]){
+        acc[current] += 1;
+    }else{
+        acc[current] = 1;
+    }
+    return acc;
+}, {});
+console.log(counts);

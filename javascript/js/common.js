@@ -162,13 +162,113 @@
 //     return accumulator + current;
 // }, 0) //reduce의 accumulator누적된 값) current(각 원소들 처음부터), 0(초기값), ,index는 할당된 배열 몇번째인지, array 배열전부
 
-const alphabets = ['a', 'a', 'a','b','c','c','d','e'];
-const counts = alphabets.reduce((acc,current) =>{
-    if(acc[current]){
-        acc[current] += 1;
-    }else{
-        acc[current] = 1;
-    }
-    return acc;
-}, {});
-console.log(counts);
+// const alphabets = ['a', 'a', 'a','b','c','c','d','e'];
+// const counts = alphabets.reduce((acc,current) =>{
+//     if(acc[current]){
+//         acc[current] += 1;
+//     }else{
+//         acc[current] = 1;
+//     }
+//     return acc;
+// }, {});
+// console.log(counts);
+
+//프로토타입
+//new 함수명() 은 기존함수를 가져와서 쓰는것이고
+//new 함수를 부여한 곳에 프로토타입을선언해서 동일한 함수전부에 객체를 추가해줄수있다.
+// function Animal(type,name,sound){
+//     this.type = type;
+//     this.name = name;
+//     this.sound = sound;
+// };
+// Animal.prototype.say = function(){
+//     console.log(this.sound);
+// }
+// function Dog(name,sound){
+//     Animal.call(this,'개',name,sound); //call로 기존의 객체생성자 옵션을 참조함. 맨처음 파라미터는 this로 call한 객체생성자를 참조해야함
+// }
+// function Cat(name ,sound){
+//     Animal.call(this,'고양이',name,sound);
+// }
+// Dog.prototype = Animal.prototype;
+// Cat.prototype = Animal.prototype;
+
+// // const dog = new Animal('개','멍멍이','멍멍');
+// // const cat =  new Animal('고양이','야옹이','야옹');
+// const dog = new Dog('멍멍이','멍멍');
+// const cat =  new Cat('야옹이','야옹');
+// dog.say();
+// cat.say();
+
+//es6클래스
+// class Animal{
+//     constructor(type, name, sound){
+//         this.type = type;
+//         this.name = name;
+//         this.sound = sound;
+//     }
+//     say(){
+//         console.log(this.sound);
+//     }
+// }
+// class Dog extends Animal { //estends = 특정 클래스를 상속받는다
+//     constructor(name, sound){//호출할때 파라미터로 받을값들임
+//         super('개',name, sound);//상속받은 클래스를 호출
+//     }
+// }
+// class Cat extends Animal{
+//     constructor(name, sound){
+//         super('고양이',name, sound)
+//     }
+// }
+
+// const dog = new Dog('멍멍이','멍멍');
+// const cat = new Cat('고양이','야옹');
+
+// dog.say();
+// cat.say();
+
+// class Food{
+//     constructor(name){
+//         this.name = name;
+//         this.brands = [];        
+//     }
+//     addBrand(brand){
+//         this.brands.push(brand);
+//     }
+//     print(){
+//         console.log(`${this.name}을 파는 음식점들:`)
+//         console.log(this.brands.join(', '));
+//     }
+// }
+
+// const pizza = new Food('피자');
+// pizza.addBrand('피자헛');
+// pizza.addBrand('도미노 피자');
+
+// const chicken = new Food('치킨');
+// chicken.addBrand('굽네치킨');
+// chicken.addBrand('BBQ');
+
+// pizza.print();
+// chicken.print();
+
+
+//입문 끝
+
+
+//삼항연산자
+//조건 ? (참일때 작동) : (거짓일때 작동)
+const array = [1,2]
+let text = array.length === 0
+    ? '배열이 비어있습니다.'
+    : '배열이 비어있지 안습니다.'
+console.log(text);
+//삼항연산자 중첩사용
+const condition1 = false;
+const condition2 = false;
+const value = condition1
+ ? '와우'
+ : consdition2
+    ? 'blabla'
+    : 'foo'

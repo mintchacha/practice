@@ -253,22 +253,28 @@
 // pizza.print();
 // chicken.print();
 
+//연습
+//카테고리 생성
+// function Game(type,name,user,tier){
+//     this.type = type;
+//     this.name = name;
+//     this.user = user;
+//     this.tier = tier;
+// }
+// Game.prototype.rank = function(){
+//     console.log(`${this.user}의 티어는 ${this.tier}입니다.`);
+// }
+
+// //게임별 카테고리 분리
+// function Valorant(tier,user){
+//     Game.call(this,'FPS','발로란트',user,tier);    
+// }
+// Valorant.prototype = Game.prototype;
+
+// //유저 정보 생성
+// const chanho = new Valorant('골드','찬호');
+
+// //찬호의 랭크 조회
+// chanho.rank();
 
 //입문 끝
-
-
-//삼항연산자
-//조건 ? (참일때 작동) : (거짓일때 작동)
-const array = [1,2]
-let text = array.length === 0
-    ? '배열이 비어있습니다.'
-    : '배열이 비어있지 안습니다.'
-console.log(text);
-//삼항연산자 중첩사용
-const condition1 = false;
-const condition2 = false;
-const value = condition1
- ? '와우'
- : consdition2
-    ? 'blabla'
-    : 'foo'

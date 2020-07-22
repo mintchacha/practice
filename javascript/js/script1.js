@@ -1,3 +1,5 @@
+//Javascript 입문
+
 //화살표 함수 let const 먼저 와야함 !!this 를 인지하지는 못함!!
 // const add = (a, b) => a + b;
 

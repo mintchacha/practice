@@ -1,4 +1,4 @@
-
+//알고있으면 유용한 js 문법
 
 //삼항연산자
 //조건 ? (참일때 작동) : (거짓일때 작동)
@@ -95,7 +95,7 @@
 //         return
 //     }
 //     console.log(tasks);
-//     tasks['야옹;];
+//     tasks['야옹'];
 // }
 // makeSound('개');
 // makeSound('비둘기');
@@ -108,20 +108,20 @@
 // console.log(one);
 // console.log(two);
 
-//복잡한 구조에서 가져오는 법
-const deepObject = {
-    state  : {
-        information : {
-            name : 'test',
-            languages : ['korean', 'english', 'chinese']
-        }
-    },
-    value : 5
-}
-//밖으로 꺼내주는작업1
-const {name, languages : [firstlang,secondlang]} = deepObject.state.information;
-const {value} = deepObject;
-//밖으로 꺼내주는작업2
+// //복잡한 구조에서 가져오는 법
+// const deepObject = {
+//     state  : {
+//         information : {
+//             name : 'test',
+//             languages : ['korean', 'english', 'chinese']
+//         }
+//     },
+//     value : 5
+// }
+// //밖으로 꺼내주는작업1
+// const {name, languages : [firstlang,secondlang]} = deepObject.state.information;
+// const {value} = deepObject;
+// //밖으로 꺼내주는작업2
 // const {
 //     state:{
 //         information : {
@@ -131,9 +131,119 @@ const {value} = deepObject;
 //     value
 // } = deepObject;
 //호출을 위해 준비하는 작업. 값이 이미 있다면 설정 안해줘도 된다.
-const extracted = {
-    name,
-    firstlang, secondlang,
-    value
+// const extracted = {
+//     name,
+//     firstlang, secondlang,
+//     value
+// }
+// console.log(extracted);
+
+// spread 와 rest
+// const slime = {
+//     name : '슬라임',
+// }
+// const cuteSlime = {
+//     ...slime,   //...은 spread연산자로 속성을 가져와서 쓰는것. cuteSlime = slime 을 하고 purpleCuteSlime = cuteSlime 을하면 같은것을 가르키게되지만 spread를 쓰면 각자 다른것을 가르키게됨
+//     attribute : 'cute'
+// }
+// const purpleCuteSlime = {
+//     ...cuteSlime,
+//     color : 'purple'
+// }
+// const greenCuteSlime = {
+//     ...purpleCuteSlime,
+//     color:'green'
+// }
+// const purpleCuteSlime = {
+//     name : '슬라임',
+//     attribute : 'cute',
+//     color: 'purple'
+// }
+// const {color, ...cuteSlime} = purpleCuteSlime; //rest 연산자는 spread 와 별개로 지정한 객체 이외의 것을 모아줌
+// console.log(color);
+// console.log(cuteSlime);
+
+// const numbers = [0,1,2,3,4,5,6];
+// const [one,two, ...rest] = numbers; //배열에서는 맨 마지막에 와야함.
+// console.log(one);
+// console.log(two);
+// console.log(rest);
+// // 함수파라미터에서의 rest
+// function sum(...rest){ //함수파라미터개수를 꼭맞춰주지 않아도 작동하도록 rest로 알아서 배열로묶어서 계산하도록한다.
+//     return rest.reduce((acc,current) => acc + current, 0);
+// }
+// const numbers = [1,2,3,4,5,6,7,8]
+// console.log(sum(...numbers));// 함수인자에서 spread
+
+// scope 이해하기
+//var의 scope는 글로벌, 함수 단위로 작동하지만 const,let는 글로벌,함수,블록(if문)단위로 작동한다.
+// const value = 'hello!'
+// function myfunction(){
+//     const value = 'bye!';
+//     if(true){
+//         const value =  "world";
+//         console.log('block scope: ');
+//         console.log(value);
+//     }
+//     console.log('function scope: ');
+//     console.log(value);
+// }
+// myfunction();
+// console.log('global scope');
+// console.log(value);
+// //hoisting 변수 호출했을때 값이 설정되어있지 않으면 undefined 가 뜨게 되는데 함수 호출은 아래코드에 설정했었던 함수를 호출할대 호이스팅현상이일어나 밑의 코드를 끌어다 참조하게됨
+// //var 는 에러가 안뜨고 undefined가 반환되지만 let, const 는 에러가 뜸
+// //호이스팅을 막는방법 = 변수에 담아서 사용하는방법이있음.
+// const myFunction = function myFunction(){
+//     console.log('hello world');
+// }
+// myFunction();
+
+//연습
+const obj = {
+    weapon_info : [
+        {
+            name : '참철검',
+            Lv : 15
+        },
+        {
+            name : '지옥참마도',
+            Lv : 999
+        },
+    ],
+    weapon : function(item){
+        return this.weapon_info.find(weapon_info => weapon_info.name === item) || '비무장';
+    },
+    armor_info : [
+        {
+            name : '가죽갑옷',
+            Lv : 5
+        },
+        {
+            name : '풀 플레이트 아머',
+            Lv : 999
+        },
+    ],
+    armor : function(item){
+        return this.armor_info.find(armor_info => armor_info.name === item) || '비무장';
+    }
 }
-console.log(extracted);
+
+function character(Lv,Exp){
+    this.Lv = Lv;
+    this.Exp = Exp;
+}
+character.prototype.Equip = function(weapon,armor){
+    this.weapon = obj.weapon(weapon)
+    this.armor =  obj.armor(armor)
+}
+
+const hero = new character(1,2);
+// hero.prototype = character.prototype;
+let hero_w = '';
+let hero_A = '';
+hero.Equip(hero_w, hero_A)
+console.log(hero);
+
+const monster = new character(2,3);
+console.log(monster);

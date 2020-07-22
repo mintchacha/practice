@@ -1,17 +1,5 @@
 "use strict";
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 //삼항연산자
 //조건 ? (참일때 작동) : (거짓일때 작동)
 // const array = [1,2]
@@ -101,7 +89,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //         return
 //     }
 //     console.log(tasks);
-//     tasks['야옹;];
+//     tasks['야옹'];
 // }
 // makeSound('개');
 // makeSound('비둘기');
@@ -112,24 +100,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 // const [one,two = 2] = array;
 // console.log(one);
 // console.log(two);
-//복잡한 구조에서 가져오는 법
-var deepObject = {
-  state: {
-    information: {
-      name: 'test',
-      languages: ['korean', 'english', 'chinese']
-    }
-  },
-  value: 5
-}; //밖으로 꺼내주는작업1
-
-var _deepObject$state$inf = deepObject.state.information,
-    name = _deepObject$state$inf.name,
-    _deepObject$state$inf2 = _slicedToArray(_deepObject$state$inf.languages, 2),
-    firstlang = _deepObject$state$inf2[0],
-    secondlang = _deepObject$state$inf2[1];
-
-var value = deepObject.value; //밖으로 꺼내주는작업2
+// //복잡한 구조에서 가져오는 법
+// const deepObject = {
+//     state  : {
+//         information : {
+//             name : 'test',
+//             languages : ['korean', 'english', 'chinese']
+//         }
+//     },
+//     value : 5
+// }
+// //밖으로 꺼내주는작업1
+// const {name, languages : [firstlang,secondlang]} = deepObject.state.information;
+// const {value} = deepObject;
+// //밖으로 꺼내주는작업2
 // const {
 //     state:{
 //         information : {
@@ -139,11 +123,70 @@ var value = deepObject.value; //밖으로 꺼내주는작업2
 //     value
 // } = deepObject;
 //호출을 위해 준비하는 작업. 값이 이미 있다면 설정 안해줘도 된다.
+// const extracted = {
+//     name,
+//     firstlang, secondlang,
+//     value
+// }
+// console.log(extracted);
+// spread 와 rest
+// const slime = {
+//     name : '슬라임',
+// }
+// const cuteSlime = {
+//     ...slime,   //...은 spread연산자로 속성을 가져와서 쓰는것. cuteSlime = slime 을 하고 purpleCuteSlime = cuteSlime 을하면 같은것을 가르키게되지만 spread를 쓰면 각자 다른것을 가르키게됨
+//     attribute : 'cute'
+// }
+// const purpleCuteSlime = {
+//     ...cuteSlime,
+//     color : 'purple'
+// }
+// const greenCuteSlime = {
+//     ...purpleCuteSlime,
+//     color:'green'
+// }
+// const purpleCuteSlime = {
+//     name : '슬라임',
+//     attribute : 'cute',
+//     color: 'purple'
+// }
+// const {color, ...cuteSlime} = purpleCuteSlime; //rest 연산자는 spread 와 별개로 지정한 객체 이외의 것을 모아줌
+// console.log(color);
+// console.log(cuteSlime);
+// const numbers = [0,1,2,3,4,5,6];
+// const [one,two, ...rest] = numbers; //배열에서는 맨 마지막에 와야함.
+// console.log(one);
+// console.log(two);
+// console.log(rest);
+// // 함수파라미터에서의 rest
+// function sum(...rest){ //함수파라미터개수를 꼭맞춰주지 않아도 작동하도록 rest로 알아서 배열로묶어서 계산하도록한다.
+//     return rest.reduce((acc,current) => acc + current, 0);
+// }
+// const numbers = [1,2,3,4,5,6,7,8]
+// console.log(sum(...numbers));// 함수인자에서 spread
+// scope 이해하기
+//var의 scope는 글로벌, 함수 단위로 작동하지만 const,let는 글로벌,함수,블록(if문)단위로 작동한다.
+var value = 'hello!';
 
-var extracted = {
-  name: name,
-  firstlang: firstlang,
-  secondlang: secondlang,
-  value: value
-};
-console.log(extracted);
+function myfunction() {
+  var value = 'bye!';
+
+  if (true) {
+    var _value = "world";
+    console.log('block scope: ');
+    console.log(_value);
+  }
+
+  console.log('function scope: ');
+  console.log(value);
+}
+
+myfunction();
+console.log('global scope');
+console.log(value); // //hoisting 변수 호출했을때 값이 설정되어있지 않으면 undefined 가 뜨게 되는데 함수 호출은 아래코드에 설정했었던 함수를 호출할대 호이스팅현상이일어나 밑의 코드를 끌어다 참조하게됨
+// //var 는 에러가 안뜨고 undefined가 반환되지만 let, const 는 에러가 뜸
+// //호이스팅을 막는방법
+// const myFunction = function myFunction(){
+//     console.log('hello world');
+// }
+// myFunction();

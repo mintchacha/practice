@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>카운트다운 애니메이션</title>
+        <link href="css/flipclock.css" rel="stylesheet">
+        <style>
+            p{
+                font-size:50px;
+                font-weight:bold;
+            }
+        </style>
+        <script src="js/jquery-3.4.1.min.js"></script>
+        <script src="js/flipclock.js"></script>
+        <script>
+
+
+        $(function(){
+            
+            var date = new Date(2021, 4, 2, 17,46,00); //월은 0부터시작해서 세므로 1적게 기입
+            var now = new Date();
+            var diff = (date.getTime()/1000) - (now.getTime()/1000);
+
+            $(".clock").FlipClock(diff,{
+                clockFace:'DailyCounter',
+                countdown: true,
+                callbacks:{
+                    stop: function () {
+                        alert("마감!!!");             
+                    }
+                }
+            });
+        });
+
+        </script>
+    </head>
+    <body>
+        <div class="clock"></div>
+        <p>2020년 4월 5일 까지!!</p>
+
+    <!-- 일수적으면 바뀌게 -->
+    </body>
+</html>

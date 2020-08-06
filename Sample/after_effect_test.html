@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bm{
+            padding:30%;
+        }
+    </style>
+</head>
+<body>
+    <h1>after Effect</h1>
+    <div id="bm">sf</div>
+    <script src="js/lottie.js"></script>
+    <script>
+            var animation = bodymovin.loadAnimation({
+                container: document.getElementById("bm"),
+                renderer: "svg",
+                loop: true,
+                autoplay: true,
+                path: "data/26403-smiley.json"
+            });
+    </script>
+</body>
+</html>

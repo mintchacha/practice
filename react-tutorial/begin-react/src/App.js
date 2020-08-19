@@ -5,8 +5,8 @@ import Counter from './Counter';
 //컴포넌트
 function App() {  
   return (
-    <Counter />
-  );
+    <Counter /> 
+  )
 }
 
 export default App;

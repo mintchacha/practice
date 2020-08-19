@@ -1,4 +1,4 @@
-import Reactm, {useState} from 'react';
+import React from 'react';
 
 function Counter(){
     

@@ -1,16 +1,22 @@
+<<<<<<< HEAD
 import React from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> 054db5b10c93ea5c368056ab913694709ddcce1c
 
 function Counter(){
-    
+    const [number, setNumber] = useState(0);
+
     const onIncrease = () => {
-        console.log('+1');
+        setNumber(prevNumber => prevNumber + 1);
+        //함수형으로 최적화 시키는것 권장
     }
     const onDecrease = () => {
-        console.log('-1');
+        setNumber(number - 1);
     }
     return (
         <div>
-            <h1>0</h1>
+            <h1>{number}</h1>
             <button onClick={onIncrease}>+1</button>
             <button onClick={onDecrease}>-1</button>
         </div>

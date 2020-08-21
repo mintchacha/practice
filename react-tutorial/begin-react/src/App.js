@@ -59,6 +59,10 @@ const onRemove = id => {
 }
 
   return (
+<<<<<<< HEAD
+    <Counter /> 
+  )
+=======
     <>
     <CreateUser 
       username = {username}
@@ -69,6 +73,7 @@ const onRemove = id => {
     <UserList users = {users} onRemove={onRemove}/>    
     </>
   );
+>>>>>>> 054db5b10c93ea5c368056ab913694709ddcce1c
 }
 
 export default App;

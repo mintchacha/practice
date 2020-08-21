@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import React from 'react';
+=======
 import React, { useState } from 'react';
+>>>>>>> 054db5b10c93ea5c368056ab913694709ddcce1c
 
 function Counter(){
     const [number, setNumber] = useState(0);

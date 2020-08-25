@@ -3,7 +3,7 @@ import UserList from './UserList';
 import CreateUser from './CreateUser';
 
 
-//컴포넌트
+//컴포넌트 
 function App() {  
   const [inputs,setInputs] = useState({
     username : '',
@@ -59,10 +59,6 @@ const onRemove = id => {
 }
 
   return (
-<<<<<<< HEAD
-    <Counter /> 
-  )
-=======
     <>
     <CreateUser 
       username = {username}
@@ -73,11 +69,8 @@ const onRemove = id => {
     <UserList users = {users} onRemove={onRemove}/>    
     </>
   );
->>>>>>> 054db5b10c93ea5c368056ab913694709ddcce1c
 }
-
 export default App;
-
 
 //react의 DOM은 HTML이 아니고 JSX.
 //import 컴포넌트 명 from '파일경로'; //js를 연결해 JSX를 불러옴

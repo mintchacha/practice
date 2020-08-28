@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="css/many_layout.css" rel="stylesheet">
-    <script src=""></script>
+    <link href="css/splitting.css" rel="stylesheet">    
+    <link href="css/slick.css" rel="stylesheet">    
+    <link href="css/many_layout.css" rel="stylesheet">    
 </head>
 <body>
     
     <section class="list_layout">
+        <h1>
+
+        </h1>
         <div class="comment">
             <p>댓글 <span>333</span></p>
             <div class="wrap">
                 <p><b>사용자</b><span>분리 배출은 '초록불'이다. 자연 파괴 과속 질주를 막을 수 있기 때문이다. 자연 파괴 과속 질주를 막을 수 있기 때문이다 자연 파괴 과속 질주를 막을 수 있기 때문이다</span><span>2020.07.24</span></p>
+                <p><b>사용자</b><span>분리 배출은 '초록불'이다. 자연 파괴 과속 질주를 막을 수 있기 때문이다.</span><span>2020.07.24</span></p>
                 <p><b>사용자</b><span>분리 배출은 '초록불'이다. 자연 파괴 과속 질주를 막을 수 있기 때문이다.</span><span>2020.07.24</span></p>
                 <p><b>사용자</b><span>분리 배출은 '초록불'이다. 자연 파괴 과속 질주를 막을 수 있기 때문이다.</span><span>2020.07.24</span></p>
                 <p><b>사용자</b><span>분리 배출은 '초록불'이다. 자연 파괴 과속 질주를 막을 수 있기 때문이다.</span><span>2020.07.24</span></p>
@@ -27,23 +32,36 @@
             </div>
         </div>
     </section>
+    <!-- 가짜채팅창? 세로 슬라이드 -->
+    <section class="fakechat">
+        <h2>실시간 상담신청 현황</h2>
+        <div>
+            <ul class="chat_slide">
+                <li><span class="text">이** l 보험나이 **세</span> <span id="chat_time"></span>분전 <span class="status">신청</span></li>
+                <li><span class="text">박** l 보험나이 **세</span> <span id="chat_time"></span>분전 <span class="status">신청</span></li>
+                <li><span class="text">이** l 보험나이 **세</span> <span id="chat_time"></span>분전 <span class="status">신청</span></li>
+                <li><span class="text">석** l 보험나이 **세</span> <span id="chat_time"></span>분전 <span class="status">신청</span></li>
+                <li><span class="text">김** l 보험나이 **세</span> <span id="chat_time"></span>분전 <span class="status">신청</span></li>
+                <li><span class="text">전** l 보험나이 **세</span> <span id="chat_time"></span>분전 <span class="status">신청</span></li>
+                <li><span class="text">정** l 보험나이 **세</span> <span id="chat_time"></span>분전 <span class="status">신청</span></li>
+                <li><span class="text">이** l 보험나이 **세</span> <span id="chat_time"></span>분전 <span class="status">신청</span></li>
+                <li><span class="text">신** l 보험나이 **세</span> <span id="chat_time"></span>분전 <span class="status">신청</span></li>
+            </ul>          
+            <p><span class="change_money">2412</span>원</p>
+        </div>
+    </section>
 
     <!-- 버튼 디자인 생각해보기 -->
     <section class="btns">
-      <button>버튼디자인1.</buttons>
-      <button>버튼디자인2.</buttons>
-      <button>버튼디자인3.</buttons>
-      <button>버튼디자인4.</buttons>
+        <button>버튼디자인1.</buttons>
+        <button>버튼디자인2.</buttons>
+        <button>버튼디자인3.</buttons>
+        <button>버튼디자인4.</buttons>
     </section>
 
-    <!-- 마케팅사당 대각선으로 배경 구분되게하는것 -->
-    <section class="bgcolor">
-
-    </section>
-    <script>
-        // formData 써보기
-       const formData = new formData();
-       console.log(formData);
-    </script>
+      <script src="js/jquery-3.4.1.min.js"></script>
+      <script src="js/slick.min.js"></script>
+      <script src="js/splitting.js"></script>
+      <script src="js/many_layout.js"></script>
 </body>
 </html>

@@ -54,3 +54,53 @@ section{
         }
     }
 }
+
+.fakechat{
+    background-color:#859afc;
+    h2{
+        line-height:2em;
+    }
+    >div{        
+        background-color:#fff;
+        border:2px solid #cdcdcd;
+        .chat_slide{
+            li{
+                position:relative;
+                line-height:3em;
+                padding-left:20px;
+                .text{
+                    border-radius:20px;
+                    padding:0.5em 1em;
+                    background-color:#eee;
+                }
+                .status{
+                    background-color:#859afc;
+                    color:#fff;
+                    padding:0px 0.8em;
+                }
+                &:after{
+                    position:absolute;
+                    top:0.9em;
+                    left:0px;
+                    width:1em;
+                    height:1em;
+                    background-color:#859afc;
+                    border-radius:50%;
+                    content:'';
+                }
+                &:hover:after{
+                    background-color:#4b65d4;
+                }
+            }
+        }
+        p{
+            background-color:#35487b;
+            color:#fff;
+            font: {
+                size:1.5em;
+                weight:bold;
+            }
+            
+        }
+    }
+}

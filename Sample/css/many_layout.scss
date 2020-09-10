@@ -67,17 +67,7 @@ section{
             li{
                 position:relative;
                 line-height:3em;
-                padding-left:20px;
-                .text{
-                    border-radius:20px;
-                    padding:0.5em 1em;
-                    background-color:#eee;
-                }
-                .status{
-                    background-color:#859afc;
-                    color:#fff;
-                    padding:0px 0.8em;
-                }
+                padding-left:20px;                
                 &:after{
                     position:absolute;
                     top:0.9em;
@@ -89,7 +79,32 @@ section{
                     content:'';
                 }
                 &:hover:after{
-                    background-color:#4b65d4;
+                    background-color:#4b65d4 !important;
+                }
+                &.slick-active:after{
+                        background-color:#f00;                    
+                }
+                &.slick-active + .slick-active:after{
+                    background-color:#f80;
+                }
+                &.slick-active + .slick-active + .slick-active:after{
+                    background-color:#ff0;
+                }
+                &.slick-active + .slick-active + .slick-active + .slick-active:after{
+                    background-color:#0f0;
+                }
+                &.slick-active + .slick-active + .slick-active + .slick-active + .slick-active:after{
+                    background-color:#004;
+                }
+                .text{
+                    border-radius:20px;
+                    padding:0.5em 1em;
+                    background-color:#eee;
+                }
+                .status{
+                    background-color:#859afc;
+                    color:#fff;
+                    padding:0px 0.8em;
                 }
             }
         }
@@ -102,5 +117,21 @@ section{
             }
             
         }
+    }
+}
+.stairs_layout{
+    position:relative;
+    height:1000px;
+    background-color:#36a;
+    >div{
+        position:absolute;
+    }
+    @for $i from 1 through 6{
+        >div:nth-of-type(#{$i}){  
+            top:30px * $i; 
+            @if($i == 2){            
+                background-color:#fcd;
+            }
+        }   
     }
 }

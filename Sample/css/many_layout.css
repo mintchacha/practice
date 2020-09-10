@@ -80,18 +80,6 @@ section {
   padding-left: 20px;
 }
 
-.fakechat > div .chat_slide li .text {
-  border-radius: 20px;
-  padding: 0.5em 1em;
-  background-color: #eee;
-}
-
-.fakechat > div .chat_slide li .status {
-  background-color: #859afc;
-  color: #fff;
-  padding: 0px 0.8em;
-}
-
 .fakechat > div .chat_slide li:after {
   position: absolute;
   top: 0.9em;
@@ -104,7 +92,39 @@ section {
 }
 
 .fakechat > div .chat_slide li:hover:after {
-  background-color: #4b65d4;
+  background-color: #4b65d4 !important;
+}
+
+.fakechat > div .chat_slide li.slick-active:after {
+  background-color: #f00;
+}
+
+.fakechat > div .chat_slide li.slick-active + .slick-active:after {
+  background-color: #f80;
+}
+
+.fakechat > div .chat_slide li.slick-active + .slick-active + .slick-active:after {
+  background-color: #ff0;
+}
+
+.fakechat > div .chat_slide li.slick-active + .slick-active + .slick-active + .slick-active:after {
+  background-color: #0f0;
+}
+
+.fakechat > div .chat_slide li.slick-active + .slick-active + .slick-active + .slick-active + .slick-active:after {
+  background-color: #004;
+}
+
+.fakechat > div .chat_slide li .text {
+  border-radius: 20px;
+  padding: 0.5em 1em;
+  background-color: #eee;
+}
+
+.fakechat > div .chat_slide li .status {
+  background-color: #859afc;
+  color: #fff;
+  padding: 0px 0.8em;
 }
 
 .fakechat > div p {
@@ -112,4 +132,39 @@ section {
   color: #fff;
   font-size: 1.5em;
   font-weight: bold;
+}
+
+.stairs_layout {
+  position: relative;
+  height: 1000px;
+  background-color: #36a;
+}
+
+.stairs_layout > div {
+  position: absolute;
+}
+
+.stairs_layout > div:nth-of-type(1) {
+  top: 30px;
+}
+
+.stairs_layout > div:nth-of-type(2) {
+  top: 60px;
+  background-color: #fcd;
+}
+
+.stairs_layout > div:nth-of-type(3) {
+  top: 90px;
+}
+
+.stairs_layout > div:nth-of-type(4) {
+  top: 120px;
+}
+
+.stairs_layout > div:nth-of-type(5) {
+  top: 150px;
+}
+
+.stairs_layout > div:nth-of-type(6) {
+  top: 180px;
 }

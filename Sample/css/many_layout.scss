@@ -122,15 +122,18 @@ section{
 .stairs_layout{
     position:relative;
     height:1000px;
-    background-color:#36a;
+    background-color:#36a;  
     >div{
         position:absolute;
     }
     @for $i from 1 through 6{
         >div:nth-of-type(#{$i}){  
             top:30px * $i; 
-            @if($i == 2){            
-                background-color:#fcd;
+            @if($i == 1){
+                background-color:#437de5;
+            }
+            @if($i == 2){           
+                background-color:#1e4995;
             }
         }   
     }

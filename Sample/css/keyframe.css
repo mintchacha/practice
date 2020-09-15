@@ -1,0 +1,12 @@
+@keyframes cover{
+    0%{width:0%}
+    40%{
+        width:100%;
+        left:0%;
+    }
+    60%{
+        width:100%;
+        left:0%;
+    }
+    100%{left:100%;}
+}

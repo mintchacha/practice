@@ -3,119 +3,55 @@
     padding:0px;
     box-sizing:border-box;
 }
-body{
-    font-size:15px;
+li{
+    list-style:none;
 }
-section{
-    margin:100px 0px;
+a{
+    text-decoration:none;
 }
-@mixin centerWidth ($width){
-    width:$width;
-    margin:0px auto;
-}
-.list_layout{
-    .comment{
-        @include centerWidth(80%);
-        background-color:#35487b;
-        padding:0px 2em;
-        line-height:2em;
-        >p{
-            text-align:right;
-            color:#fff;
-        }
-        .wrap{            
-            background-color:#fff;
-            padding:10px;
-            p{
-                position:relative;
-                line-height:1.5em;        
-                b{
-                    position:absolute;
-                    top:0px;
-                    left:0px;
-                }        
-                span:nth-of-type(1){
-                    display:block;
-                    white-space:nowrap;
-                    text-overflow: ellipsis;
-                    overflow:hidden;
-                    margin:0px 80px 0px 60px;
-                }
-                span:nth-of-type(2){
-                    position:absolute;
-                    top:0px;
-                    right:0px;
-                }
-            }
-        }
-        .page{
-            color:#fff;
-            text-align:center;
-        }
-    }
+@import url("keyframe.css");
+@mixin animation($name,$s){
+    animation-name:$name;
+    animation-duration:$s;
+    @content;
 }
 
-.fakechat{
-    background-color:#859afc;
-    h2{
-        line-height:2em;
+body{
+    background:linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab) no-repeat;
+    background-size:400% 400%;
+    background-position:1px 1px;
+    @include animation(gradient,8s){
+        animation-timing-function:ease;
+        animation-iteration-count:infinite;
+        animation-direction:alternate;
     }
-    >div{        
-        background-color:#fff;
-        border:2px solid #cdcdcd;
-        .chat_slide{
+}
+.flip_banner{
+    h1{
+        padding:10px 0;
+        color:#fff;
+        background-color:rgb(53, 34, 138);
+    }    
+    div{
+        ul{
+            display:flex;
+            flex-wrap:wrap;
             li{
-                position:relative;
-                line-height:3em;
-                padding-left:20px;                
-                &:after{
-                    position:absolute;
-                    top:0.9em;
-                    left:0px;
-                    width:1em;
-                    height:1em;
-                    background-color:#859afc;
-                    border-radius:50%;
-                    content:'';
+                width:10%;
+                
+                &:hover{
+                    a{
+                        transform:rotateY(180deg);
+                    }
                 }
-                &:hover:after{
-                    background-color:#4b65d4 !important;
-                }
-                &.slick-active:after{
-                        background-color:#f00;                    
-                }
-                &.slick-active + .slick-active:after{
-                    background-color:#f80;
-                }
-                &.slick-active + .slick-active + .slick-active:after{
-                    background-color:#ff0;
-                }
-                &.slick-active + .slick-active + .slick-active + .slick-active:after{
-                    background-color:#0f0;
-                }
-                &.slick-active + .slick-active + .slick-active + .slick-active + .slick-active:after{
-                    background-color:#004;
-                }
-                .text{
-                    border-radius:20px;
-                    padding:0.5em 1em;
-                    background-color:#eee;
-                }
-                .status{
-                    background-color:#859afc;
+                a{
+                    display:block;
                     color:#fff;
-                    padding:0px 0.8em;
+                    padding:10px 0px;
+                    text-align:center;
+                    transition:0.5s;
                 }
             }
-        }
-        p{
-            background-color:#35487b;
-            color:#fff;
-            font: {
-                size:1.5em;
-                weight:bold;
-            }
-            
         }
     }
 }

@@ -1,25 +1,14 @@
-$('.chat_slide').slick({    
-    slidesToShow: 5,
-    vertical: true,
-    autoplay:true,
-    autoplaySpeed:1000,    
-    draggable:false,
-    pauseOnHover : false
-});
-$(".slick-arrow").hide();
-
-// var count = 0;
-// var price = [4523,16000,5422,7896]
-// function random_price(){
-//     var target = document.querySelector('.change_money');
-//     var write = price[count]
-//     target.innerText = write
-//     count ++;
-//     if(count > 3){
-//         count = 0
-//     }
-// }
-// setInterval(random_price,1000);
-
-var text = document.querySelector('.change_money');
-
+let list_wrap = document.querySelector(".flip_banner ul");
+let list_array = [];
+for(let i = 0; i < 65; i++){    
+    list_array.push(`<li><a href="#">링크${i + 1}</a></li>`)
+}
+list_wrap.innerHTML = list_array.join('');
+for(let i = 0; i<65; i++){  
+    let list = document.querySelectorAll(".flip_banner li a");
+    let r = Math.floor(Math.random()*256);
+    let g = Math.floor(Math.random()*256);
+    let b = Math.floor(Math.random()*256);      
+    const color = `rgb(${r},${g},${b},0.7)`;
+    list[i].style.backgroundColor = color;
+}

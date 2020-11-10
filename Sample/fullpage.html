@@ -6,9 +6,6 @@
     <title>fullpage</title>
     <script src="js/jquery-3.4.1.min.js"></script>
     <link href="css/jquery.fullPage.css" rel="stylesheet">
-    <script>
-        
-    </script>
     <style>
         *{
             margin:0;
@@ -18,10 +15,49 @@
             background:#ccc;
             height:100vh;
         }
+        .con2{
+            background:#bbb;
+        }
     </style>
 </head>
 <body>
-    <section>
+    <section class="con1">컨텐츠 1
     </section>
+    <section class="con2">
+        컨텐츠 2
+    </section>
+    
+    <script>
+        // 일정위치로 스크롤이 부드럽게 이동하는 함수
+        // 패이지 스크롤 위치 조사 ageYOffset 스크롤의 현재 위치
+        function absolute(sct){  
+        const scrolledTopLength = pageYOffset;
+            const absoluteTop = scrolledTopLength + sct.top;
+            window.scroll({
+                behavior:"smooth",
+                left:0,
+                top:absoluteTop
+            });
+        }
+
+        function direct1(){
+        var sct = document.querySelector(".con2").getBoundingClientRect();
+        //getBoundingClientRect는 객체의 좌표가담긴 API !!맨위 스크롤로부터의 좌표라서 스크롤내리면 낮아짐!!
+        absolute(sct);        
+        }
+
+        //스크롤 감지 이벤트 scroll 은 자동으로 지원해주는듯
+        var scroll_show = true;
+        window.onscroll = function() {
+            if(scroll_show){
+                var sct1 = document.querySelector(".con1").getBoundingClientRect();
+                if(sct1.top <= 500){
+                direct1();
+                }
+            }
+        };
+
+
+    </script>
 </body>
 </html>

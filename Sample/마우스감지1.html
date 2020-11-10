@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background:#ddd;
+        }
+        section{
+            width:100px;
+            height:100px;
+            background:#dbf;
+        }
+        li:hover{
+            background:#bdf;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <ul>
+            <li>list1</li>
+            <li>list1</li>
+            <li>list1</li>
+            <li>list1</li>
+            <li>list1</li>
+        </ul>
+    </section>
+    <script>
+        let list = document.querySelectorAll("li");
+        var count = 0;
+        list.forEach((a,index,c,d)=>{            
+            list[index].addEventListener('click',function(){
+                console.log(index);
+            });
+        });
+        
+        
+    </script>
+</body>
+</html>

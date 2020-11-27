@@ -26,32 +26,93 @@ body{
         animation-direction:alternate;
     }
 }
-.flip_banner{
-    h1{
-        padding:10px 0;
-        color:#fff;
-        background-color:rgb(53, 34, 138);
-    }    
-    div{
-        ul{
-            display:flex;
-            flex-wrap:wrap;
-            li{
-                width:10%;
+
+// flip 컨텐츠
+// .flip_banner{
+//     h1{
+//         padding:10px 0;
+//         color:#fff;
+//         background-color:rgb(53, 34, 138);
+//     }    
+//     div{
+//         ul{
+//             display:flex;
+//             flex-wrap:wrap;
+//             li{
+//                 width:10%;
                 
-                &:hover{
-                    a{
-                        transform:rotateY(180deg);
-                    }
-                }
-                a{
-                    display:block;
-                    color:#fff;
-                    padding:10px 0px;
-                    text-align:center;
-                    transition:0.5s;
-                }
-            }
-        }
-    }
-}
+//                 &:hover{
+//                     a{
+//                         transform:rotateY(180deg);
+//                     }
+//                 }
+//                 a{
+//                     display:block;
+//                     color:#fff;
+//                     padding:10px 0px;
+//                     text-align:center;
+//                     transition:0.5s;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+/* tab 컨텐츠 */
+// .tab{
+//     position:relative;
+    
+//     color:rgb(random(255), random(255), random(255));
+//     .tab_head {
+//       display:flex;
+//       transform:translateY(3px);
+//       >li{
+//         padding:20px 30px;
+//         border-bottom:3px solid #7fd2f0;
+//         border-radius:10px 10px 0 0;
+//         margin-right:10px;
+//         background-color:#fff;
+//         cursor:pointer;
+//         &.on{
+//           background-color:#23a6d5;
+//           border:3px solid #7fd2f0;
+//           border-bottom:0;
+//         }
+//         &:last-child{
+//           margin:0;
+//         }
+//       }
+//     }    
+//     .tab_body{
+//       background-color:#fff;
+//       >div{
+//         display:none;
+//         padding:30px;
+//         &.on{
+//           display:flex;
+//           background-color:#23a6d5;
+//           border:3px solid #7fd2f0;
+//         }
+//         >div{
+//           text-align:center;
+//           >h3{
+//             margin-bottom:10px;
+//           }
+//         }
+//         >p{
+//           padding-left:30px;
+//           width:calc(100% - 280px);
+//         }
+//       }
+//     }
+//   }
+//   @media all and (max-width:650px){
+//     .tab .tab_body>div.on{
+//       display:block;
+//     }
+//     .tab .tab_body>div>p{
+//       width:100%;
+//       padding:0;
+//       text-align:center;
+//     }
+//   }

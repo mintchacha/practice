@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("keyframe.css");
 * {
   margin: 0px;
@@ -30,34 +31,4 @@ body {
           animation-direction: alternate;
 }
 
-.flip_banner h1 {
-  padding: 10px 0;
-  color: #fff;
-  background-color: #35228a;
-}
-
-.flip_banner div ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.flip_banner div ul li {
-  width: 10%;
-}
-
-.flip_banner div ul li:hover a {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
-
-.flip_banner div ul li a {
-  display: block;
-  color: #fff;
-  padding: 10px 0px;
-  text-align: center;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
+/* tab 컨텐츠 */

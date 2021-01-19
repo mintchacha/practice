@@ -3,6 +3,18 @@
     padding:0px;
     box-sizing:border-box;
 }
+img{    
+    -ms-user-select: none;
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    user-select:none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
 li{
     list-style:none;
 }
@@ -116,3 +128,69 @@ body{
 //       text-align:center;
 //     }
 //   }
+
+// hovercheck 컨텐츠
+// .hoverchk .chk1:checked + label{
+//     display:inline-block;
+//     width:100px;
+//     height:100px;
+//     background:#fff;
+// }
+// .hoverchk>input{
+//     width:100px;
+//     height:100px;
+//     background-color:#fff;
+// }
+
+//채팅 스크롤
+// .scr_chat{
+//     margin-top:200px;
+//     background:#fff;
+//     li{
+//         transition:0.5s;
+//         opacity:0;
+//         &.on{
+//             transform:translateY(-50px); 
+//             opacity:1;
+//         }
+//     }
+// }
+
+//  마우스 인터랙션1 커서변경,클릭 애니메이션
+// .mouse_interactive {
+//     cursor: url(../images/cursor.png),url(../images/cursor.cur), auto;
+//     background:#fff;
+//     height:500px;
+//     ul{
+//         display:flex;
+//         height:100%;
+//         padding:0 20px;
+//         justify-content:space-between;
+//         align-items:center;
+//         li {
+//             width:30%;
+//             text-align:center;
+//             padding:50px;
+//             border-radius:10px;
+//             background:#fbd;
+//             cursor:url(../images/hover.png), auto;
+//             img{
+//                 width:150px;   
+//                 transition:0.5s;
+//                 &.tree{
+//                     display:none;
+//                 }             
+//             }
+//         }
+//     }
+// }
+
+//프로토타입 응용 숫자 카운팅
+.proto_counting{
+    p{
+        font:{
+            size:2em;
+            weight:bold;
+        }
+    }
+}

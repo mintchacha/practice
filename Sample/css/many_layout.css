@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("keyframe.css");
 * {
   margin: 0px;
@@ -27,24 +26,23 @@ a {
   text-decoration: none;
 }
 
-body {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab) no-repeat;
-  background-size: 400% 400%;
-  background-position: 1px 1px;
-  -webkit-animation-name: gradient;
-          animation-name: gradient;
-  -webkit-animation-duration: 8s;
-          animation-duration: 8s;
-  -webkit-animation-timing-function: ease;
-          animation-timing-function: ease;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
+.scr_chat {
+  height: 3000px;
+  background: #ffd;
 }
 
-/* tab 컨텐츠 */
-.proto_counting p {
-  font-size: 2em;
-  font-weight: bold;
+.scr_chat li {
+  position: relative;
+  top: 50px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  background: #ffe;
+  padding: 10px 30px;
+  border: 2px solid #969476;
+}
+
+.scr_chat li.on {
+  top: 0;
+  opacity: 1;
 }

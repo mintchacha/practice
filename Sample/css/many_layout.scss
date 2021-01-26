@@ -28,169 +28,23 @@ a{
     @content;
 }
 
-body{
-    background:linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab) no-repeat;
-    background-size:400% 400%;
-    background-position:1px 1px;
-    @include animation(gradient,8s){
-        animation-timing-function:ease;
-        animation-iteration-count:infinite;
-        animation-direction:alternate;
-    }
-}
 
-// flip 컨텐츠
-// .flip_banner{
-//     h1{
-//         padding:10px 0;
-//         color:#fff;
-//         background-color:rgb(53, 34, 138);
-//     }    
-//     div{
-//         ul{
-//             display:flex;
-//             flex-wrap:wrap;
-//             li{
-//                 width:10%;
-                
-//                 &:hover{
-//                     a{
-//                         transform:rotateY(180deg);
-//                     }
-//                 }
-//                 a{
-//                     display:block;
-//                     color:#fff;
-//                     padding:10px 0px;
-//                     text-align:center;
-//                     transition:0.5s;
-//                 }
-//             }
-//         }
-//     }
-// }
-
-/* tab 컨텐츠 */
-// .tab{
-//     position:relative;
-    
-//     color:rgb(random(255), random(255), random(255));
-//     .tab_head {
-//       display:flex;
-//       transform:translateY(3px);
-//       >li{
-//         padding:20px 30px;
-//         border-bottom:3px solid #7fd2f0;
-//         border-radius:10px 10px 0 0;
-//         margin-right:10px;
-//         background-color:#fff;
-//         cursor:pointer;
-//         &.on{
-//           background-color:#23a6d5;
-//           border:3px solid #7fd2f0;
-//           border-bottom:0;
-//         }
-//         &:last-child{
-//           margin:0;
-//         }
-//       }
-//     }    
-//     .tab_body{
-//       background-color:#fff;
-//       >div{
-//         display:none;
-//         padding:30px;
-//         &.on{
-//           display:flex;
-//           background-color:#23a6d5;
-//           border:3px solid #7fd2f0;
-//         }
-//         >div{
-//           text-align:center;
-//           >h3{
-//             margin-bottom:10px;
-//           }
-//         }
-//         >p{
-//           padding-left:30px;
-//           width:calc(100% - 280px);
-//         }
-//       }
-//     }
-//   }
-//   @media all and (max-width:650px){
-//     .tab .tab_body>div.on{
-//       display:block;
-//     }
-//     .tab .tab_body>div>p{
-//       width:100%;
-//       padding:0;
-//       text-align:center;
-//     }
-//   }
-
-// hovercheck 컨텐츠
-// .hoverchk .chk1:checked + label{
-//     display:inline-block;
-//     width:100px;
-//     height:100px;
-//     background:#fff;
-// }
-// .hoverchk>input{
-//     width:100px;
-//     height:100px;
-//     background-color:#fff;
-// }
 
 //채팅 스크롤
-// .scr_chat{
-//     margin-top:200px;
-//     background:#fff;
-//     li{
-//         transition:0.5s;
-//         opacity:0;
-//         &.on{
-//             transform:translateY(-50px); 
-//             opacity:1;
-//         }
-//     }
-// }
-
-//  마우스 인터랙션1 커서변경,클릭 애니메이션
-// .mouse_interactive {
-//     cursor: url(../images/cursor.png),url(../images/cursor.cur), auto;
-//     background:#fff;
-//     height:500px;
-//     ul{
-//         display:flex;
-//         height:100%;
-//         padding:0 20px;
-//         justify-content:space-between;
-//         align-items:center;
-//         li {
-//             width:30%;
-//             text-align:center;
-//             padding:50px;
-//             border-radius:10px;
-//             background:#fbd;
-//             cursor:url(../images/hover.png), auto;
-//             img{
-//                 width:150px;   
-//                 transition:0.5s;
-//                 &.tree{
-//                     display:none;
-//                 }             
-//             }
-//         }
-//     }
-// }
-
-//프로토타입 응용 숫자 카운팅
-.proto_counting{
-    p{
-        font:{
-            size:2em;
-            weight:bold;
+.scr_chat{
+    height:3000px;
+    background:#ffd;
+    li{
+        position:relative;
+        top:50px;
+        transition:0.5s;
+        opacity:0;
+        background:#ffe;
+        padding:10px 30px;
+        border:2px solid rgb(150, 148, 118);
+        &.on{
+            top:0;
+            opacity:1;
         }
     }
 }

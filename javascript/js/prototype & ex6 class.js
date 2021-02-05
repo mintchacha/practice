@@ -1,3 +1,5 @@
+'use strick'
+
 document.querySelector("section").innerHTML = 
 // "<div><img src='../img/prototype_create.png' alt=''></div>" + 
 "<div><img src='img/prototype_create.png' alt=''></div>";
@@ -14,10 +16,31 @@ const kim = new Person();
 // Person이라는 함수로 생성된 객체,
 //마치 var kim = {}; 와 동일한 문법
 
-console.log(kim);
-
-
 //연습
+// find 메소드 크로스브라우징에 대한 polyfill 코드
+if (!Array.prototype.find) {
+    Array.prototype.find = function(predicate) {
+        if (this == null) {
+            throw new TypeError('Array.prototype.find called on null or undefined');
+        }
+        if (typeof predicate !== 'function') {
+            throw new TypeError('predicate must be a function');
+        }
+        var list = Object(this);
+        var length = list.length >>> 0;
+        var thisArg = arguments[1];
+        var value;
+        
+        for (var i = 0; i < length; i++) {
+            value = list[i];
+            if (predicate.call(thisArg, value, i, list)) {
+                return value;
+            }
+        }
+        return undefined;
+    };
+}
+
 const obj = {
     weapon_info : [
         {
@@ -57,12 +80,14 @@ character.prototype.Equip = function(weapon,armor){
 }
 
 const hero = new character(1,2);
-// hero.prototype = character.prototype;
+hero.prototype = character.prototype;
 let hero_w = '';
 let hero_A = '';
 hero.Equip(hero_w, hero_A)
 
 const monster = new character(2,3);
+monster.Equip('참철검','가죽갑옷');
+console.log(monster);
 
 
 
@@ -75,19 +100,40 @@ class Animal {
         this.sound = sound;
     }
     say(){
-        console.log(this.sound);
+        console.log(this.type);
     }
 }
 
 //extends = 클래스 상속m super 상속된 constructor 불러오기
 class Dog extends Animal{
     constructor(name, sound){
-        super()
+        super('개',name, sound)
     }
 }
 
-const dog = new Animal('개' ,'멍멍이', '멍멍')
-const cat = new Animal('고양이', "야옹이", "야옹")
+class Cat extends Animal{
+    constructor(name, sound){
+        super('고양이',name, sound)
+    }
+}
 
-dog.say();
-cat.say();
+const dog = new Dog('멍멍이','멍멍');
+const cat = new Cat('고양이','야옹');
+
+// dog.say();
+// cat.say();
+
+
+class Food {
+    constructor(name){
+        this.name = name
+        this.brands = [];
+    }
+    addBrand(brand){
+        this.brands.push();
+    }
+    print(){
+        console.log(`${this.name} 을 파는 음식점들:`);
+        console.log(this.brands.join(','));
+    }
+}

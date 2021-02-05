@@ -26,23 +26,111 @@ a {
   text-decoration: none;
 }
 
-.scr_chat {
-  height: 3000px;
-  background: #ffd;
+.hoverlist {
+  background-color: rgba(50, 50, 50, 0.5);
+  color: #fff;
 }
 
-.scr_chat li {
-  position: relative;
-  top: 50px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  opacity: 0;
-  background: #ffe;
-  padding: 10px 30px;
-  border: 2px solid #969476;
+.hoverlist a {
+  color: #fff;
+  font-size: 1.7em;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  opacity: 0.7;
 }
 
-.scr_chat li.on {
-  top: 0;
+.hoverlist a:hover {
   opacity: 1;
+}
+
+.hoverlist ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.hoverlist ul li {
+  position: relative;
+  width: 250px;
+  overflow: hidden;
+  opacity: 0.5;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  margin: 10px;
+}
+
+.hoverlist ul li h2 {
+  background-color: #000;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  text-align: right;
+  padding-top: 20px;
+  padding-right: 20px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.hoverlist ul li h2:before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  border-top: 0px solid transparent;
+  border-right: 250px solid #000;
+  border-bottom: 30px solid transparent;
+  border-left: 0px solid transparent;
+}
+
+.hoverlist ul li img {
+  width: 100%;
+}
+
+.hoverlist ul li p {
+  background-color: #000;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  padding: 0 0 20px 10px;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.hoverlist ul li p:before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0px;
+  border-top: 40px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-left: 250px solid #000;
+}
+
+.hoverlist ul li:hover {
+  opacity: 1;
+}
+
+.hoverlist ul li:hover h2 {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+.hoverlist ul li:hover p {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+@media all and (max-width: 520px) {
+  .hoverlist ul li {
+    margin: 10px auto;
+  }
 }

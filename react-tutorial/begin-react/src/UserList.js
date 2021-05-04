@@ -13,7 +13,7 @@ function User({ user,onRemove }){
 
 function UserList({ users, onRemove }){    
     return (
-        <div>
+        <div className="userlist_wrap">
             {
                 users.map(
                     (user,index) => (

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>길다란 배너</title>
+    <style>
+        html,body{
+            margin:0;
+        }
+        img{
+            width:100%;
+            vertical-align:center;
+        }
+        button{
+            background-color:transparent;
+            border:0;
+        }
+        section{
+            overflow:hidden;
+        }
+        .slide_con{
+            width:5000px;
+        }
+        .slide_con .contents{
+
+        }
+        .slide_con .arrow_wrap {            
+            position:relative;
+            width:100vw;
+            height:100%;
+            z-index:1000;
+        }
+        .slide_con .arrow_wrap button{
+            position:absolute;
+            top:50%;
+        }
+        .slide_con .arrow_wrap .prev{
+            transform:rotate(180deg);
+        }
+        .slide_con .arrow_wrap .next{
+            right:50px;
+        }
+        .slide_con>img{
+            transition:0.5s;
+        }
+        
+        @media all and (max-width:768px){
+            .slide_con{
+                width:3000px;
+            }  
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="slide_con">
+            <h2>제목</h2>
+            <div class="contents">
+                
+            </div>
+            <div class="arrow_wrap">
+                <button class="prev"><img src="images/arrow.png"></button>
+                <button class="next"><img src="images/arrow.png"></button>
+            </div>
+            <img src="images/longbanner.jpg">
+        </div>
+    </section>
+
+    <script>
+        let prev_btn = document.querySelector('.slide_con .arrow_wrap .prev');
+        let next_btn = document.querySelector('.slide_con .arrow_wrap .next');
+        let slidebanner = document.querySelector('.slide_con>img');
+        let count = 0;
+        prev_btn.addEventListener('click', () => {
+            count -= 23;
+            if(count > 69 || count < 0){
+                count += 23;
+                return
+            }
+            console.log(count);
+            slidebanner.style.transform = `translate(-${count}%)`;
+        })
+        next_btn.addEventListener('click', () => {
+            count += 23;
+            if(count > 69 || count < 0){
+                count -= 23;
+                return
+            }
+            console.log(count);
+            slidebanner.style.transform = `translate(-${count}%)`;
+        })
+    </script>
+</body>
+</html>

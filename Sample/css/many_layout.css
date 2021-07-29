@@ -26,6 +26,27 @@ a {
   text-decoration: none;
 }
 
+.scr_chat {
+  height: 3000px;
+  background: #ffd;
+}
+
+.scr_chat li {
+  position: relative;
+  top: 50px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+  background: #ffe;
+  padding: 10px 30px;
+  border: 2px solid #969476;
+}
+
+.scr_chat li.on {
+  top: 0;
+  opacity: 1;
+}
+
 .hoverlist {
   background-color: rgba(50, 50, 50, 0.5);
   color: #fff;

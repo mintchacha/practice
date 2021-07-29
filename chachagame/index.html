@@ -1,0 +1,88 @@
+
+  <!DOCTYPE html>
+  <html lang="ko">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+          <title>chacha's story</title>
+          <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+          <link href="css/common.css" rel="stylesheet">
+          <script src="js/charcter_make.js"></script>
+          <script src="js/skill.js"></script>
+      </head>
+      <body>
+        <div class="bgm_btn">
+            <button onclick="bgm_off()">배경음 끄기</button>
+            <button onclick="bgm_on()">배경음 켜기</button>
+        </div>
+        <header>
+            <h1>chacha story</h1>
+        </header>
+        <section class="banner">
+        <img src="http://creativityweb.co.kr/2020/chachagame/img/logo.png">
+        <button onclick="start()">Play!</button>
+        </section>        
+    
+        <section class="main">
+        <div class="player_info">
+            <div>
+                <h2>
+                    <span>플레이어 정보</span>
+                </h2>
+                <div class="stat_wrap">
+                    <div>
+                        <div class="status_box">이름 : 
+                            <div class="player_name"></div>        
+                        </div>
+                        <div class="status_box">Lv
+                            <div class="player_Lv"></div>        
+                        </div>
+                        <div class="status_box">ATK
+                            <div class="player_ATK"></div>        
+                        </div>                
+                    </div>
+                    <div>
+                        <div class="status_box">HP
+                            <div class="bar">
+                            <div class="player_HP"></div>              
+                            <div class="player_HPbar"></div>
+                            </div>        
+                        </div>
+                        <div class="status_box">MP
+                            <div class="bar">
+                            <div class="player_MP"></div>            
+                            <div class="player_MPbar"></div>     
+                            </div>        
+                        </div>
+                        <div class="status_box">EXP
+                            <div class="bar">
+                            <div class="player_EXP"></div>            
+                            <div class="player_EXPbar"></div>     
+                            </div>           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="log">어떤 모험이 펼쳐질까?!</div>
+        <div class="motion">
+            <button class="battle" onclick='play()'>battle!!</button>            
+        </div>
+        </section>
+        <div>            
+            <audio class="bgm" autoplay loop>
+                <source src="http://creativityweb.co.kr/2020/chachagame/sound/bg.mp3" type="audio/mp3">         
+            </audio>
+            <audio id="attack_ef">       
+                <source src="http://creativityweb.co.kr/2020/chachagame/sound/attack.mp3" type="audio/mp3">                       
+            </audio>
+            <audio id="levelup_ef">           
+                <source src="http://creativityweb.co.kr/2020/chachagame/sound/levelup.mp3" type="audio/mp3">                   
+            </audio>
+            <audio id="powerslash_ef">                   
+                <source src="http://creativityweb.co.kr/2020/chachagame/sound/powerslash.mp3" type="audio/mp3">            
+            </audio>
+        </div>
+    </body>
+    <script src="js/common.js"></script>
+  </html>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function CreateUser({ username, email, onChange, onCreate }){
     return (
-        <div>
+        <div className="createuser_wrap">
             <input
                 name="username"
                 placeholder="계정명"

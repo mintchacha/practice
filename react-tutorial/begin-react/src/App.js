@@ -1,6 +1,9 @@
 import React, { useRef,useState } from 'react';
 import UserList from './UserList';
 import CreateUser from './CreateUser';
+import Wrapper from './Wrapper';
+import Header from './Header';
+import './css/App.css';
 
 
 //컴포넌트 
@@ -57,17 +60,23 @@ const onCreate = () => {
 const onRemove = id => {
   setUsers(users.filter(user=>user.id !== id))
 }
-
   return (
     <>
+    {/* 주석 */}
+    <Header
+      //주석    
+    />
     <CreateUser 
       username = {username}
       email={email}
       onChange={onChange}
       onCreate={onCreate}
     />
-    <UserList users = {users} onRemove={onRemove}/>    
+    <UserList users = {users} onRemove={onRemove}/>
+    <Wrapper children = 'dfdsdf'/>    
     </>
+
+    
   );
 }
 export default App;

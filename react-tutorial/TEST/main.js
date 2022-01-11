@@ -1,4 +1,8 @@
-import _ from 'lodash';
+function User(first, last){
+    this.firstName = first;
+    this.lastNmae = last   
+}
 
-console.log("hello world");
-console.log(_.camelCase("hello world"));
+const chanho = new User('Chanho', 'Kim');
+
+console.log(chanho);

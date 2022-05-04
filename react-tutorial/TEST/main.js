@@ -1,29 +1,14 @@
-class Vehicle{
-    constructor(name, wheel){
-        this.name = name
-        this.wheel = wheel
-    }
-}
-const myVehicle = new Vehicle('운송수단',2)
-console.log(myVehicle);
+import axios from 'axios'
 
-class Bicycle extends Vehicle{
-    constructor(name, wheel){
-        super(name,wheel)
-    }
+function fetchMovies(){
+    axios
+        .get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen')
+        .then(res => {
+            console.log(res)
+            const h1El = document.querySelector('h1')
+            const imgEl = document.querySelector('img')
+            h1El.textContent = res.data.Search[0].Title
+            imgEl.src = res.data.Search[0].Poster
+        })
 }
-const myBicycle = new Bicycle('삼천리', 2);
-const daughtersBicycle = new Bicycle('세발',3);
-console.log(myBicycle);
-console.log(daughtersBicycle);
-
-class Car extends Vehicle{
-    constructor(name, wheel, license){
-        super(name,wheel)
-        this.license = license
-    }
-}
-const myCar = new Car('벤츠', 4, true);
-const daughtersCar = new Car('포르쉐',4,false);
-console.log(myCar)
-console.log(daughtersCar);
+fetchMovies()

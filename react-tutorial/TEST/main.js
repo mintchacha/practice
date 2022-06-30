@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-function fetchMovies(){
+const fetchMovies = () => {
     axios
         .get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen')
         .then(res => {
@@ -11,4 +11,5 @@ function fetchMovies(){
             imgEl.src = res.data.Search[0].Poster
         })
 }
-fetchMovies()
+const btn = document.getElementById("btn");
+btn.addEventListener('click',fetchMovies);

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <style>
+      html, body { height: 100%; margin: 0; }
+      body { overflow-x: hidden; }
+      #container { width: 500%; height: 100%; display: flex; flex-wrap: nowrap; }
+      section { width: 100%; height: 100%; position: relative; display: flex; justify-content: center; align-items: center; }
+      .section01 { background: orange; }
+      .section02 { background: yellowgreen; }
+      .section03 { background: firebrick; }
+      .section04 { background: cornflowerblue; }
+      .section05 { background: seagreen; }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <section class="section01">
+        <h1>section01</h1>
+      </section>
+      <section class="section02">
+        <h1>section02</h1>
+      </section>
+      <section class="section03">
+        <h1>section03</h1>  
+      </section>
+      <section class="section04">
+        <h1>section04</h1>
+      </section>
+      <section class="section05">
+        <h1>section05</h1>
+        <p>
+            <p></p>
+        </p>
+      </section>
+    </div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        let SECTIONS = gsap.utils.toArray("section");
+        console.log(-100 * (SECTIONS.length -1));
+        gsap.to(SECTIONS, {
+            xPercent: -100 * (SECTIONS.length -1),
+            ease:"none",
+            scrollTrigger:{
+              trigger:'#container',
+              end:() => "+=" + document.querySelector("#container").offsetWidth,
+              pin:true,
+              scrub:1,
+              snap:1 / (SECTIONS.length -1),
+            }
+        })
+    </script>
+  </body>  
+</html>

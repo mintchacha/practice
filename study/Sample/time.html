@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.js"></script> 
+<style>
+  *{
+    padding:0;
+    margin:0;
+  }
+  section{
+    width:620px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+  }
+  .flip-clock-divider .flip-clock-label{
+    top:10em;
+  }
+  @media all and (max-width:780px){
+    section{
+      width:fit-content;
+    }
+    .flip-clock-wrapper{
+      margin:0;
+    }
+    .flip-clock-divider .flip-clock-label{
+      top:7em;
+      right:-63px;
+    }
+    .flip-clock-divider.minutes .flip-clock-label{
+      right:-68px; 
+    }
+    .flip-clock-divider.seconds .flip-clock-label{
+      right:-70px; 
+    }
+    .flip-clock-divider{
+      height:80px;
+    }
+    .flip-clock-dot.top{
+      top:20px;
+    }
+    .flip-clock-dot.bottom{
+      bottom:20px;
+    }
+    .flip-clock-wrapper ul{
+      width:40px;
+      height:60px;
+      line-height:60px;
+    }
+    .flip-clock-wrapper ul li{
+      height:60px;
+      line-height:60px;
+    }
+    .flip-clock-wrapper ul li a div div.inn{
+      font-size:42px;
+    }
+  }
+  @media all and (max-width:480px){    
+    .flip-clock-divider .flip-clock-label{
+      top:5em;
+      right:-43px;
+    }
+    .flip-clock-divider.minutes .flip-clock-label{
+      right:-50px; 
+    }
+    .flip-clock-divider.seconds .flip-clock-label{
+      right:-52px; 
+    }
+    .flip-clock-divider{
+      width:5px;
+      height:50px;
+    }
+    .flip-clock-dot{
+      width:5px;
+      height:5px;
+      left:0px;
+    }
+    .flip-clock-dot.top{
+      top:15px;
+    }
+    .flip-clock-dot.bottom{
+      bottom:15px;
+    }
+    .flip-clock-wrapper ul{
+      width:20px;
+      height:40px;
+      line-height:40px;
+    }
+    .flip-clock-wrapper ul li{
+      height:40px;
+      line-height:40px;
+    }
+    .flip-clock-wrapper ul li a div div.inn{
+      font-size:24px;
+    }
+  }
+</style>
+</head>
+<body>
+  <section>
+    <div class="clock"></div>
+  </section>
+  
+  <script>    
+  const Ddate = new Date(2022, 07, 16, 00,00,00); //월은 0부터시작해서 세므로 1적게 기입
+  var now = new Date();
+  var diff = (Ddate.getTime()/1000) - (now.getTime()/1000);
+  $(".clock").FlipClock(diff,{
+      clockFace:'DailyCounter',
+      // default : HourlyCounter, 일 표시 : DailyCounter
+      // autoStart: false,
+      countdown: true,
+      callbacks:{
+          stop: function (){
+            location.href = "index.php";
+        }
+      }
+  });
+  // 지정날짜 초과시 새로고침
+  let timenow = {
+      'M' : now.getMonth()+1,
+      'D' : now.getDate(),
+      // 'H' : now.getHours(), //여기부턴 시간까지 계산
+      // 'min' : now.getMinutes(),
+      'data' : ()=>{
+        return Number(`${timenow['M']}${timenow['D']}`)
+      }
+  }
+  // 객체 데이터 순회해서 0 붙이기
+  let keys = Object.keys(timenow);
+  let timenowdata = keys.forEach(i => {
+    if(timenow[i]<=9){
+      timenow[i] = `0${timenow[i]}`;
+    }
+    return timenow[i]
+  })  
+  // Dday
+  const Dday = 816;
+  console.log(timenow.data());
+  console.log(Dday);
+  if(timenow.data() >= Dday){
+    location.href = "index.php";
+    // console.log(123);
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parallax 구조</title>
+    <link href="../css/splitting.css" rel="stylesheet">
+    <link href="../css/splitting-cells.css" rel="stylesheet">
+    <link href="../css/slick.css" rel="stylesheet">
+    <style>
+      *{
+        box-sizing:border-box;
+        margin:0;
+        padding:0;
+      }
+      li{
+        list-style:none;
+      }
+      img{
+        vertical-align:top;
+      }
+      .none{
+        display:none;
+      }
+      .movetitle .char{
+        animation-name:movetitle;
+        animation-duration:0.3s;
+        animation-delay:calc(0.1s * var(--char-index));
+      }
+      @keyframes movetitle{
+        0%{
+          transform:translate(50%);
+          opacity:0;
+        }
+        100%{          
+          transform:translate(0%);
+          opacity:1;
+        }
+      }
+      /* header */
+      header{
+        display:grid;
+        grid-template-columns:170px 1fr;
+        text-align:center;
+        padding:20px 0;
+        background-color:rgba(255,155,155,1);
+      }
+      header>h1{
+        padding:0 10px;
+        line-height:0.8em;
+      }
+      header>h1>#getting-started{
+        font-size:14px;
+      }
+      header>nav>ul{
+        display:flex;        
+        align-items:center;
+        height:100%; 
+        padding-left:20%;
+      }
+      header>nav>ul>li{
+        padding:0 3em;
+      }
+      header>nav>ul>li>a{
+        color:#fff;
+        text-decoration:none;
+      }
+      header>nav>ul>li>a:hover,
+      header>nav>ul>li>a:focus{
+        color:#ddd;
+      }
+      /* main */
+      main{
+        text-align:center;
+      }
+      main .banner_slide .banner{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        height:300px;
+      }
+      main .banner_slide .banner1{
+        background-color:#fdb;
+      }
+      main .banner_slide .banner2{
+        background-color:#fbd;
+      }
+      main .banner_slide .banner3{
+        background-color:#bfd;
+      }
+      main .banner_slide h4{
+        font-size:4em;
+      }
+      /* main content */
+      main .content {
+        padding:50px 0;
+      }
+      main .content h3{
+        font-size:2em;
+        margin-bottom:10px;
+      }   
+      main .content h4{
+        font-size:1.5em;
+        margin:50px 0;
+      }
+      main .content .main-intro{
+        max-width:1200px;
+        margin:0 auto;
+      }   
+      main .content .main-intro .intro1 figcaption{
+        margin:10px 0 30px;
+      }
+      main .content .main-intro .intro2{
+        position:relative;
+        display:flex;
+        text-align:left;
+        background-color:#fdb;        
+      }
+      main .content .main-intro .intro2 img{        
+        position:relative;
+        z-index:1;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        transition:0.3s;
+      }
+      main .content .main-intro .intro2:hover img{
+        clip-path: polygon(0 0, 100% 0, 70% 0, 30% 0);
+      }
+      main .content .main-intro .intro2>figcaption{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+      }
+      main .content .main-intro .intro2>figcaption>p{
+        font-size:1.5em;
+      }      
+      main .content .main-data{
+        font-size:1.5em;
+        margin:50px 0;
+        background-color:#fbd;
+      }
+      /* footer */
+      footer{
+        padding:20px 0;
+        text-align:center;
+        color:#ddd;
+        background-color:#555;
+      }
+      footer dl{
+        display:flex;
+        justify-content:center;
+        max-width:1200px;
+        margin:0 auto 10px;
+      }
+      footer>dl>dd{
+        margin-right:20px;
+      }
+    </style>
+  </head>
+  <body>    
+    <header>
+      <h1>
+        메인 로고
+        <span id="getting-started"></span>
+      </h1>
+      <nav>
+        <h2 class="none">네이게이션바</h2>
+        <ul>
+          <li><a href="#">리스트1</a></li>
+          <li><a href="#">리스트2</a></li>
+          <li><a href="#">리스트3</a></li>
+          <li><a href="#">리스트4</a></li>
+          <li><a href="#">리스트5</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <article>
+        <h3 class="none">메인배너</h3>
+        <section class="banner_slide">
+          <div class="banner1 banner">
+            <h4>배너1</h4>
+          </div>
+          <div class="banner2 banner">
+            <h4>배너2</h4>
+          </div>
+          <div class="banner3 banner">
+            <h4>배너3</h4>
+          </div>
+        </section>
+      </article>
+      <article class="content">
+        <h3 class="movetitle" data-splitting>메인컨텐츠</h3>
+        <section class="main-intro">
+          <h4 class="movetitle" data-splitting>페이지 소개</h4>
+          <figure class="intro1">
+            <img src="https://via.placeholder.com/1200x300" alt="페이지 소개 관련 이미지">
+            <figcaption>
+              <p>페이지에 관한 소개를 적는공간임 내용을 입력 해 주시오. 물리학적으로 사진(寫真 또는 光畵, Photograph)은 물체에서 반사된 빛과 같은 전자기적 발광을 감광성 기록재료 위에 기록하여 얻은 빛 그림, 즉 광화상을 말한다. 사진은 보통 사진기로 만들어지는데, 사진기는 빛을 모아 사진 필름이나 CCD 또는 CMOS와 같은 이미지 센서에 초점을 맞추어 상을 맺히게 한다. 그리스어의 'photos'(빛)와 'graphien'(그리다)에서 유래한 말로, 1839년 존 F.W. 허셜 경이 처음 사용하였다. </p>
+            </figcaption>
+          </figure>
+          <figure class="intro2">
+            <img src="https://via.placeholder.com/1200x500" alt="페이지 소개 관련 이미지">
+            <figcaption>
+              <p>페이지에 관한 소개</p>
+            </figcaption>
+          </figure>
+        </section>
+        <section class="main-data">
+          <h4>페이지 자료</h4>
+          <ul>
+            <li></li>
+          </ul>
+        </section>
+      </article>
+    </main>
+    <footer>
+      <dl>
+        <dt>회사 정보:</dt>
+        <dd>회사 명</dd>
+        <dt>회사 위치:</dt>
+        <dd>주소</dd>
+        <dt>기타회사정보:</dt>
+        <dd>기타회사내용</dd>
+      </dl>
+      <small>&copy;korea kimchan ho practice page</small>
+    </footer>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>    
+    <script src="../js/jquery.countdown.min.js"></script>
+    <script src="../js/slick.min.js"></script>
+    <script src="../js/splitting.min.js"></script>
+    <script>
+      $(".banner_slide").slick({
+        arrows:false,
+        autoplay:true
+      });
+      $("#getting-started").countdown("2022/10/25", function(event) {
+        $(this).text(            
+          event.strftime('%DD %H:%M:%S')
+        );
+      });
+      Splitting();
+      gsap.registerPlugin(ScrollTrigger);
+      const tl = gsap.timeline();      
+    </script>
+  </body>  
+</html>

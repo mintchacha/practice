@@ -109,7 +109,7 @@
   </section>
   
   <script>    
-  const Ddate = new Date(2022, 07, 16, 00,00,00); //월은 0부터시작해서 세므로 1적게 기입
+  const Ddate = new Date(2022, 06, 20, 15,25,30); //월은 0부터시작해서 세므로 1적게 기입
   var now = new Date();
   var diff = (Ddate.getTime()/1000) - (now.getTime()/1000);
   $(".clock").FlipClock(diff,{
@@ -119,6 +119,7 @@
       countdown: true,
       callbacks:{
           stop: function (){
+            $(".clock").hide();
             location.href = "index.php";
         }
       }
@@ -134,20 +135,18 @@
       }
   }
   // 객체 데이터 순회해서 0 붙이기
-  let keys = Object.keys(timenow);
+  let keys = Object.keys(timenow);  
   let timenowdata = keys.forEach(i => {
     if(timenow[i]<=9){
       timenow[i] = `0${timenow[i]}`;
     }
-    return timenow[i]
   })  
   // Dday
   const Dday = 816;
   console.log(timenow.data());
-  console.log(Dday);
   if(timenow.data() >= Dday){
-    location.href = "index.php";
-    // console.log(123);
+    $(".clock").hide();
+    location.href = "index.php";    
   }
   </script>
 </body>

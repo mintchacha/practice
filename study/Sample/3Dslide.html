@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D slide</title>
+  <link rel="stylesheet" href="./css/slick.css">
+  <style>
+    .containner{
+      position:relative;
+      width:1200px;      
+      margin:0 auto;
+      background-color:#ccc;
+    }
+    .containner .slick-slide{
+      height:500px;
+      opacity:0.7;
+      transform:scale(0.7);
+      transition:0.3s;
+    }
+    .containner .slick-slide:nth-of-type(2),
+    .containner .slick-slide:nth-of-type(6){
+      background:rgb(255, 204, 153);
+    }
+    .containner .slick-slide:nth-of-type(3){
+      background:rgb(196, 255, 118);
+    }
+    .containner .slick-slide:nth-of-type(4){
+      background:rgb(122, 246, 255);
+    }
+    .containner .slick-slide:nth-of-type(1),
+    .containner .slick-slide:nth-of-type(5){
+      background:rgb(155, 127, 255);
+    }
+    .containner .slick-arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      z-index:1;
+    }
+    .containner .slick-prev{
+      left:0;
+    }
+    .containner .slick-next{
+      right:0px;
+    }
+    .containner .slick-active{
+      transform:scale(1);
+      opacity:1;
+    }
+  </style>  
+</head>
+<body>
+  <article class="containner">
+    <section>1</section>
+    <section>2</section>
+    <section>3</section>
+    <section>4</section>
+  </article>
+  <script src="./js/jquery-3.4.1.min.js"></script>
+  <script src="./js/slick.min.js"></script>
+  <script>    
+    $('.containner').slick({
+      centerMode: true,
+      centerPadding: '300px',
+      slidesToShow: 1,
+      slidesToScroll: 1
+    });
+  </script>
+</body>
+</html>

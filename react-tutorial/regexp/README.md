@@ -50,7 +50,7 @@ replace | `문자열.replace(정규식, 대체문자)` | 일치하는 문자를 
 
 플래그 | 설명
 --|--
-q | 모든 문자 일치(global)
+g | 모든 문자 일치(global)
 i | 열엉 대소문자를 구분 않고 일치(ignore case)
 m | 여러 줄 일치 (multi line)
 
@@ -60,4 +60,7 @@ m | 여러 줄 일치 (multi line)
 --|--
 ^ab | 줄(Line) 시작에 있는 ab와 일치
 ab$ | 줄(Line) 끝에 있는 ab와 일치
+. | 임의의 한 문자와 일치
+a&verbar;b | a 또는 b와 일치
+ab? | b가 없거나 b와 일치
 

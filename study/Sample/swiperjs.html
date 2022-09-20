@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swiper.js</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  <style>
+    :root{      
+      --swiper-theme-color:#fff;
+    }
+    body,h1{
+      margin:0;
+      padding:0;
+    }
+    img{
+      width:100%;
+    }
+    section{
+      height:100vw;
+      background-color:#ddd;
+    }
+    section h1{
+      text-align:center;
+      font:bold 2em/3em Normal;
+    }
+    .swiper{
+      width:1280px;
+      padding:50px 0px;
+    }
+    .swiper .swiper-slide{      
+      opacity:0.5;
+      transform:scale(0.7);
+      transition:0.3s;
+    }
+    .swiper .swiper-slide-active{
+      opacity:1;
+      transform:scale(1);
+    }
+    .swiper .swiper-pagination{
+      top:initial;
+      bottom:0px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+</head>
+<body>
+  <section>
+    <h1>Swiper</h1>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="./images/ani01.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./images/ani02.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./images/ani03.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="./images/ani04.jpg" alt=""></div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- <div class="swiper-scrollbar"></div> -->
+      <div class="swiperbtn">3번사진버튼</div>
+    </div>
+  </section>
+    <script>
+      const swiper = new Swiper('.swiper',{
+        // Optional parameters
+        // direction: 'vertical',
+        loop: true,
+        // autoplay: {
+        //   delay: 2000,
+        // },
+        speed:1000,
+        slidesPerView: 2,
+        // spaceBetween: 20,
+        centeredSlides: true,
+        // effect: "cube",
+        // grabCursor: true,
+        // cubeEffect: {
+        //   shadow: true,
+        //   slideShadows: true,
+        //   shadowOffset: 20,
+        //   shadowScale: 0.94,
+        // },
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+          // type: "progressbar",
+          clickable: true,
+        },
+
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        // scrollbar: {
+        //   el: '.swiper-scrollbar',
+        // },
+        on: {
+          slideChange: function (swiper) {
+            console.log(swiper.realIndex);
+            // console.log(swiper.el);
+          },
+        },
+      });
+      
+      const swiperbtn = document.querySelector('.swiperbtn');
+      swiperbtn.addEventListener('click',() => {
+        swiper.slideTo(0, 1000, false);
+      })
+      
+    </script>
+</body>
+</html>

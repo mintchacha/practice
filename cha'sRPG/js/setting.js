@@ -78,8 +78,8 @@ class User extends Character{
     // 경험치획득
     getExp(getexp){
         this.exp += getexp 
-        level.forEach((item, index)=>{
-            if(this.exp >= level[index]){
+        level.forEach((item)=>{
+            if(this.exp >= item){
                 level.shift()
                 this.lv ++   
                 this.hp.count = this.hp.max 

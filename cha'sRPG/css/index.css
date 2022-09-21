@@ -1,22 +1,65 @@
-main{
-  padding:50px 10px 10px;
-  text-align:center;
+.hide{
+  width:0; height:0;
+  font-size:0; line-height:0;
+  visibility:hidden; position:absolute;
 }
-
+body,article,aside,main,ul,li,p,div{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 .status{
   position:fixed;
   width:100%;
   left:0px;
   top:0px;
   padding:10px 0;
-  background-color:rgb(245, 247, 160)
+  background-color:rgb(245, 247, 160);
+  text-align:center;
+  z-index:100;
 }
-
-.bagbox{
+/* 메인화면 */
+main{
+  background-color:rgb(216, 150, 27);
+}
+main .battlezone{
+  position:relative;
+  padding:44px 10px 20px;
+  text-align:center;
+  height:100vh;
+  overflow:auto;
+}
+main .battlezone>h1{
+  color:rgb(5, 92, 20);
+}
+main .battlezone>p{
+  margin:0 0 10px;
+}
+/* 상점 */
+main .shop{
+  text-align:center;
+  background-color:antiquewhite;  
+  padding:44px 0 20px;
+  height:100vh;
+}
+main .shop>h2{
+  
+}
+main .shop>ul{
   display:flex;
   flex-wrap:wrap;
   justify-content:space-between;
-  align-content:flex-start;
+  width:1200px;
+  margin:0 auto;
+}
+main .shop>ul>li{
+  width:250px;
+  background-color:#fff;
+  list-style:none;
+}
+
+/* 인벤토리 */
+.bagbox{
   position:fixed;
   right:0px;
   top:50%;
@@ -27,17 +70,67 @@ main{
   height:800px;
   transition:0.3s;
   background: linear-gradient(180deg, rgba(255,212,107,1) 0%, rgba(250,171,78,1) 100%);
-  box-sizing:border-box;
 }
 .bagbox.open{
   transform:translate(0%, -50%);
 }
-.bagbox>div{
+.bagbox>p{
+  padding-left:10px;
+  font-weight:bold;
+  font-size:24px;
+  line-height:2em;
+  border:1px solid rgb(121, 70, 23);
+  margin-bottom:10px;
+  background-color:rgb(255, 229, 211);
+}
+.bagbox .items{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-content:flex-start;
+}
+.bagbox .items>div{
+  position:relative;
   width:80px;
   height:80px;
   border:1px solid rgb(121, 70, 23);
   margin-bottom:15px;
   background-color:rgb(255, 241, 214);
-  /* margin:0 5px 10px 0; */
-  box-sizing:border-box;
+  transition-property: background-color, background-size;
+  transition-duration:0.3s;
+}
+.bagbox .items>div.hover{
+  border-width:2px;
+  background-color:rgb(235, 197, 154);
+  background-size:90%;
+}
+.bagbox .items>div .iteminfo{
+  /* display:none; */
+  position:absolute;
+  top:0px;
+  right:100%;
+  width:300px;
+  color:#fff;
+  padding:10px;
+  border:1px solid rgb(16, 14, 150);
+  background-color:rgba(0, 204, 255, 0.8);
+  text-align:center;
+  z-index:100;
+}
+.bagbox .items>div .iteminfo>p{
+  padding-bottom:20px;
+}
+
+.settingbox{
+  position:fixed;
+  left:0px;
+  top:50px;
+  padding:10px;
+  border-radius:10px;
+  transform:translate(-100%);
+  transition:0.3s;
+  background-color:antiquewhite;
+}
+.settingbox.open{
+  transform:translate(0%)
 }

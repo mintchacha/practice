@@ -90,8 +90,8 @@ class User extends Character{
     }    
     // 아이템획득
     getitem(getitem){
-        this.item.push(getitem)
-        bag_items[this.item.length - 1].style.background = `url(${getitem.img}) no-repeat center center /80% rgb(255, 241, 214)`
+        this.item.push(getitem)        
+        bag_items[this.item.length - 1].style.background = `url(${getitem.img}) no-repeat center center /60% rgb(255, 241, 214)`
         bag_items[this.item.length - 1].style.cursor = 'pointer'
         bag_items[this.item.length - 1].addEventListener('mouseover', function(){
             this.classList.add('hover')
@@ -104,7 +104,20 @@ class User extends Character{
         bag_items[this.item.length - 1].addEventListener('mouseout', function(){
             this.classList.remove('hover')
             this.querySelector('div.iteminfo').remove()
+        })        
+        bag_items[this.item.length - 1].addEventListener('click',() => {
+            this.useitem(getitem)
         })
+    }
+    useitem(useitem){
+        switch(useitem.type){
+            case 'consumption' : 
+                this.hp.count + useitem.cure > this.hp.max ? this.hp.count = this.hp.max : this.hp.count + useitem.cure
+                console.log(this.item)
+                bag_items[this.item.length - 1]
+                break;
+        }
+        this.quiry()
     }
 }
 // 아이템 생성
@@ -144,7 +157,7 @@ const woodsword = new Weapon('weapon', '목검', 5, './images/items/woodsword.pn
 // 방어구
 const plate = new Armor('armor', '가죽 갑옷', 5, './images/items/plate.png', '', 1)
 // 소비
-const pill = new Item('consumption', '알약', 5, './images/items/Exitem.png', '체력을 5 회복시켜주는 약이다.', 5)
+const pill = new consumption('consumption', '알약', 5, './images/items/Exitem.png', '체력을 5 회복시켜주는 약이다.', 5)
 // 기타
 const slimebubble = new Item('etc', '슬라임 방울', 0, './images/items/slimebubble.png', '',)
 
@@ -167,6 +180,7 @@ class Monster extends Character{
     }
 }
 // 몬스터 목록
+// 초보자 숲
 const slime = new Monster(
     // 이름
     '슬라임',
@@ -188,7 +202,16 @@ const slime = new Monster(
     pill
 )
 const wolf = new Monster('늑대', 2, {max : 5, count : 5}, {max : 0, count : 0}, 1, 0, 7, 2,'늑대 이빨')
-
+const bear = new Monster('곰', 2, {max : 5, count : 5}, {max : 0, count : 0}, 1, 0, 7, 2,'늑대 이빨')
+// 중급자 평야
+const ogre = new Monster('오우거')
+const skull = new Monster('스켈레톤')
+const deathknight = new Monster('사령기사')
+// 상급 던전 
+const hatchling = new Monster('새끼드래곤')
+const dragon = new Monster('성체드래곤')
+const devil = new Monster('악마')
+let random_spawn = []
 // 전투 개시
 let inbattle = false
 function battle(monster){

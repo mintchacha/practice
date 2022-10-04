@@ -97,12 +97,12 @@ main .shop>ul>li{
   margin-bottom:15px;
   background-color:rgb(255, 241, 214);
   transition-property: background-color, background-size;
-  transition-duration:0.3s;
+  transition-duration:0.1s;
 }
 .bagbox .items>div.hover{
   border-width:2px;
-  background-color:rgb(235, 197, 154);
-  background-size:90%;
+  background-color:rgb(235, 197, 154) !important;
+  background-size:70% !important;
 }
 .bagbox .items>div .iteminfo{
   /* display:none; */

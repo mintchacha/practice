@@ -3,11 +3,3 @@ orgin = 현재 온라인 레포지토리에 push 된 프로젝트.
 master = 메인프로젝트 (!!데이터 손실 주의!!)
 
 branch = 개별적인 기능 추가를 위한 별도의 작업환경
-
-
-HTML
-CSS
-Javascript
-jQery
-
-react
